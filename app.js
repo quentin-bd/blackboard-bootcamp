@@ -1,3 +1,6 @@
+require('./models/connection');
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -37,5 +40,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// helpers
+app.locals.dateFormat = (date) => {
+  var day = date.getDate();
+  var month = Number(date.getMonth()) + 1;
+  var year = date.getFullYear();
+
+  return `${day}/${month}/${year}`
+}
+
 
 module.exports = app;
