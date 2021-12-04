@@ -7,7 +7,7 @@ var options = {
     useUnifiedTopology: true
 };
 
-mongoose.connect('mongodb+srv://lacapsule:EXIrgUdaFEllfNSH@cluster0-9xbpy.mongodb.net/blackboard?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGO_CS,
     options,
     function (err) {
         if (err) {
